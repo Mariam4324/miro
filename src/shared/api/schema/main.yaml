@@ -1,0 +1,17 @@
+# схема бекенда. Можно делать в одном файле, но лучше разбивать на файлы для чистоты.
+openapi: 3.0.0
+info:
+  title: Miro-like Collaborative Whiteboard API # Название API
+  description: API for a collaborative whiteboard application similar to Miro
+  version: 1.0.0
+paths:
+  /boards:
+    get:
+      $ref: "./endpoints/boards.yaml#/getAllBoards" # Ссылка на описание этого метода в другом файле
+
+    post:
+      $ref: "./endpoints/boards.yaml#/createBoard" # Конфигурация для этого эндпоинта лежит в другом файле. Здесь просто описываем какой метод зарпроса(get), url
+
+  /boards/{boardId}:
+    delete:
+      $ref: "./endpoints/boards.yaml#/deleteBoard"
